@@ -15,12 +15,32 @@ formEl.addEventListener('submit', (e) => {
     if (data.error) {
       console.log(data.error)
     } else {
-      const moviesArr = data.getMovieData.results
+    const moviesArr = data.getMovieData.results
+    const myTags = [];
+    
       for (const movie of moviesArr) {
         console.log(movie.title)
-        divEl.innerHTML += `<p>${movie.title}</p>`
+        myTags.push(movie.title)
+        
+        // divEl.innerHTML += `<p>${movie.title}</p>`
       }
+      // tagCloud.js
+          var tagCloud = TagCloud('.content', myTags,{
+            radius: 300,
+            maxSpeed: 'fast',
+            initSpeed: 'fast',
+            direction: 135,
+            keep: true
+          
+          }); 
+          var colors = ['#34A853', '#FBBC05', '#4285F4', '#7FBC00', 'FFBA01', '01A6F0'];
+          var random_color = colors[Math.floor(Math.random() * colors.length)];
+      
+          document.querySelector('.content').style.color = random_color;
+        // tagCloud.js
     }
   })
   })
 })
+
+
