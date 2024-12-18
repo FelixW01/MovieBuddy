@@ -1,7 +1,9 @@
 const express = require('express');
 const path = require('path')
-
 const app = express();
+const getMovieId = require('./utils/movie')
+const getMovie = require('./utils/getMovie')
+
 const PORT = process.env.PORT || 3000
 
 // Define paths for Express config
@@ -12,6 +14,28 @@ app.use(express.static(publicDirectoryPath))
 
 app.get('', (req, res) => {
     res.sendFile('index')
+})
+
+app.get('/movies', (req, res) => {
+    const {userMovie} = req.query
+
+    if (!userMovie) {
+        return res.send({error: 'You must provide a movie!'})
+    }
+
+    getMovieId(userMovie, (err, {movieId}) => {
+        if(err) {
+            console.log(err)
+            return res.send({err})
+        }
+        getMovie(movieId, (err, getMovieData) => {
+            if(err) {
+                console.log(err)
+                return res.send({err})
+            }
+            res.send({getMovieData})
+        })
+    })
 })
 
 app.listen(PORT, () => {
