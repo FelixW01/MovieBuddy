@@ -5,7 +5,7 @@ const getMovie = (movieId, callback) => {
   const apiKey = process.env.API_KEY;
   const userMovieId = movieId;
 
-  const url = `https://api.themoviedb.org/3/movie/${userMovieId}/similar?api_key=${apiKey}&include_adult=false&language=en-US&page=1`;
+  const url = `https://api.themoviedb.org/3/movie/${encodeURIComponent(userMovieId)}/similar?api_key=${apiKey}&include_adult=false&language=en-US&page=1`;
 
   const options = {
     method: 'GET',

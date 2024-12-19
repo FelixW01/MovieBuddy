@@ -2,6 +2,7 @@ const inputEl = document.getElementById('searchInput')
 const buttonEl = document.getElementById('searchBtn')
 const formEl = document.getElementById('inputForm')
 const divEl = document.getElementById('heroDiv')
+const cloudEl = document.getElementById('floatingWords')
 
 formEl.addEventListener('submit', (e) => {
   e.preventDefault()
@@ -15,22 +16,32 @@ formEl.addEventListener('submit', (e) => {
     if (data.error) {
       console.log(data.error)
     } else {
+    cloudEl.innerHTML = ""
     const myTags = [];
     const moviesArr = data.getMovieData.results
 
-      for (const movie of moviesArr) {
-        console.log(movie.title)
-        myTags.push(movie.title)
+    if (myTags.length > 0) {
+      myTags = [];
+    } else {
+      for (let i = 0; i < moviesArr.length; i++) {
+        if (i <= 20) {
+          myTags.push(moviesArr[i].title)
+          console.log(moviesArr[i].title, `<<<< ${i}`)
+        } else {
+          break
+        }
       }
+    }
+
     // tagCloud.js
     var tagCloud = TagCloud('.content', myTags,{
       radius: 300,
-      maxSpeed: 'fast',
-      initSpeed: 'fast',
+      maxSpeed: 'normal',
+      initSpeed: 'normal',
       direction: 135,
       keep: true
-    
     }); 
+
     var colors = ['#34A853', '#FBBC05', '#4285F4', '#7FBC00', 'FFBA01', '01A6F0'];
     var random_color = colors[Math.floor(Math.random() * colors.length)];
 
