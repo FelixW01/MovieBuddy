@@ -42,7 +42,7 @@ formEl.addEventListener('submit', (e) => {
       keep: true
     }); 
 
-    var colors = ['#34A853', '#FBBC05', '#4285F4', '#7FBC00', 'FFBA01', '01A6F0'];
+    var colors = ['#006A67', '#ECDFCC', '#697565', '#E8BCB9', '#6EACDA', '#4B70F5'];
     var random_color = colors[Math.floor(Math.random() * colors.length)];
 
     document.querySelector('.content').style.color = random_color;
