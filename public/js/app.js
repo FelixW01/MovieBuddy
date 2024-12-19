@@ -8,7 +8,6 @@ formEl.addEventListener('submit', (e) => {
   e.preventDefault()
 
   const movieInput = inputEl.value
-  console.log(movieInput)
 
   fetch(`/movies?userMovie=${encodeURIComponent(movieInput)}`)
   .then((response) => { 
@@ -24,9 +23,11 @@ formEl.addEventListener('submit', (e) => {
       myTags = [];
     } else {
       for (let i = 0; i < moviesArr.length; i++) {
+        if (!myTags.includes(movieInput.charAt(0).toUpperCase() + movieInput.slice(1))) {
+          myTags.push(movieInput.charAt(0).toUpperCase() + movieInput.slice(1))
+        }
         if (i <= 20) {
           myTags.push(moviesArr[i].title)
-          console.log(moviesArr[i].title, `<<<< ${i}`)
         } else {
           break
         }
