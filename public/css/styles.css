@@ -38,3 +38,29 @@ h1 {
  align-items: center;
  margin-top: 3rem;
 }
+
+.input-div {
+ min-width: 100%
+}
+
+#inputForm {
+  min-width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#searchInput {
+ padding: .2rem .5rem;
+ margin-right: .3rem;
+ background-color: #2a2b26;
+ color: #ECDFCC;
+ min-width: 25%;
+}
+
+#searchBtn {
+  padding: .2rem 1rem;
+  border-radius: 5px;
+  background-color: #ECDFCC;
+  color: #2a2b26;
+}
