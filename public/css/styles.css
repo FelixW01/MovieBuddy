@@ -73,3 +73,7 @@ h1 {
   border: none;
   outline: none;
 }
+
+#searchBtn:hover {
+  background-color: #D4C39D;
+}
