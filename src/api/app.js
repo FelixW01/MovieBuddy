@@ -1,13 +1,13 @@
 const express = require('express');
 const path = require('path')
 const app = express();
-const getMovieId = require('./utils/movie')
-const getMovie = require('./utils/getMovie')
+const getMovieId = require('../utils/movie')
+const getMovie = require('../utils/getMovie')
 
 const PORT = process.env.PORT || 3000
 
 // Define paths for Express config
-const publicDirectoryPath = path.join(__dirname, '../public')
+const publicDirectoryPath = path.join(__dirname, '../../public')
 
 // Setup static directory to serve
 app.use(express.static(publicDirectoryPath))
