@@ -13,7 +13,7 @@ const publicDirectoryPath = path.join(__dirname, '../public')
 app.use(express.static(publicDirectoryPath))
 
 app.get('', (req, res) => {
-    res.sendFile('index')
+    res.sendFile(path.join(publicDirectoryPath, 'index'))
 })
 
 app.get('/movies', (req, res) => {
