@@ -3,10 +3,8 @@
 ## Live Website 
 https://moviebuddy-cphh.onrender.com/
 
-https://main.dl6emuh44uay.amplifyapp.com/index.html
-
 ## Description
-Welcome to  MovieBuddy, your one stop shop for your movie searching needs. MovieBuddy focuses on delivering movie information for who wants to find similar movies to a movie they like.
+Welcome to  MovieBuddy, your one stop platform for your movie searching needs. MovieBuddy focuses on delivering movie information for who wants to find similar movies to a movie they like.
 This website was created for the purpose of honing Javascript, Node.JS, Express.js skills especially the practice of fetching and parsing API information and dynamically rendering said data into the DOM.
 
 ## Table of Contents
