@@ -31,14 +31,14 @@ fetch(`/movies?userMovie=${encodeURIComponent(movieInput)}`)
     if (!existingSubTitle) {
       divEl.insertAdjacentHTML('beforebegin', '<div class="sub-title-div"><h2>Recommended Movies</h2></div>');
     }
-    
+
     divEl.innerHTML = ''
     let i = 0
     for (const movie of moviesArr) {
       if (i < 10) {
       let template = `
       <div class="card">
-        <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" class="card-img-top" alt="${movie.title}-poster">
+        <a href="https://www.themoviedb.org/movie/${movie.id}-${movie.title}?language=en-US"><img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" class="card-img-top" alt="${movie.title}-poster"></a>
         <div class="card-body">
           <p class="card-title">${movie.title}</p>
           <p class="card-text"><small>Release Date: ${movie.release_date}</small></p>
