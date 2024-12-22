@@ -16,7 +16,6 @@ request({ url: url, options }, (err, response, body) => {
   if (err) {
       callback('Unale to connect to movie services!', err)
   } else if (response.statusCode !== 200) {
-    console.log(response.statusCode)
       callback('Unable to fetch movie services!', response.statusCode)
   } else {
     const results = JSON.parse(body);
