@@ -14,10 +14,8 @@ This website was created for the purpose of honing Javascript, Node.JS, Express.
 - [Questions](#questions)
 
 ## App Demo
-![4](https://github.com/user-attachments/assets/b5c779c3-1799-43d3-a769-420be99a6560)
-![5](https://github.com/user-attachments/assets/02086717-feff-4e3c-a22f-3de469dbd915)
-
-
+![1](https://github.com/user-attachments/assets/684fb9a1-b7ac-4c00-8682-488831f145d6)
+![2](https://github.com/user-attachments/assets/67607e85-745c-4796-947c-3987e9effd21)
 
 
 ## Installation
