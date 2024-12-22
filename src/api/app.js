@@ -23,17 +23,17 @@ app.get('/movies', (req, res) => {
         return res.send({error: 'You must provide a movie!'})
     }
 
-    getMovieId(userMovie, (err, {movieId}) => {
+    getMovieId(userMovie, (err, {movieId, searchedMovie}) => {
         if(err) {
             console.log(err)
             return res.send({err})
         }
-        getMovie(movieId, (err, getMovieData) => {
+        getMovie(movieId, searchedMovie, (err, getMovieData, searchedMovie) => {
             if(err) {
                 console.log(err)
                 return res.send({err})
             }
-            res.send({getMovieData})
+            res.send({getMovieData, searchedMovie})
         })
     })
 })

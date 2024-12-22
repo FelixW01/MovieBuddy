@@ -21,7 +21,7 @@ request({ url: url, options }, (err, response, body) => {
   } else {
     const results = JSON.parse(body);
     const movieId = results.results[0].id
-    callback(undefined, {movieId: movieId});
+    callback(undefined, {movieId: movieId, searchedMovie: results});
   }
 });
 }

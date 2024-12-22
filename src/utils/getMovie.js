@@ -1,7 +1,7 @@
 const request = require('postman-request');
 require('dotenv').config()
 
-const getMovie = (movieId, callback) => {
+const getMovie = (movieId, searchedMovie, callback) => {
   const apiKey = process.env.API_KEY;
   const userMovieId = movieId;
 
@@ -21,7 +21,7 @@ request({ url: url, options }, (err, response, body) => {
       callback('Unable to fetch movie services!', response.statusCode)
   } else {
     const results = JSON.parse(body);
-    callback(undefined, results)
+    callback(undefined, results, searchedMovie)
   }
 });
 }

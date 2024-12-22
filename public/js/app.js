@@ -15,18 +15,24 @@ formEl.addEventListener('submit', (e) => {
   }
 
   // Fetch the api based on user input
-  fetch(`/movies?userMovie=${encodeURIComponent(movieInput)}`)
+fetch(`/movies?userMovie=${encodeURIComponent(movieInput)}`)
   .then((response) => { 
     response.json().then((data) => {
     if (data.error) {
       console.log(data.error)
     } else {
-    // Reset tagCloud sphere
-    cloudEl.innerHTML = ""
-    const myTags = [];
     const moviesArr = data.getMovieData.results
-    console.log(moviesArr, '<<<< Movie Data')
-
+    const searchedMovie = data.searchedMovie.results[0]
+    const existingSubTitle = document.querySelector('.sub-title-div');
+    
+    // logic to make sure it doesn't append doubles
+    // Appends the h2 right before the hero div
+    moviesArr.unshift(searchedMovie)
+    if (!existingSubTitle) {
+      divEl.insertAdjacentHTML('beforebegin', '<div class="sub-title-div"><h2>Recommended Movies</h2></div>');
+    }
+    
+    divEl.innerHTML = ''
     let i = 0
     for (const movie of moviesArr) {
       if (i < 10) {
@@ -41,7 +47,6 @@ formEl.addEventListener('submit', (e) => {
       </div>
     `;
       divEl.innerHTML += template;
-      console.log(movie)
       i++
       }
     }
