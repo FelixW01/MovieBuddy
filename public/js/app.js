@@ -55,5 +55,7 @@ fetch(`/movies?userMovie=${encodeURIComponent(movieInput)}`)
   })
 })
 
+const currentYear = new Date().getFullYear();
+document.getElementById('currentYear').textContent = currentYear;
 
       
