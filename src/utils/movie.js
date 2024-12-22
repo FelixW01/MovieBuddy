@@ -21,7 +21,6 @@ request({ url: url, options }, (err, response, body) => {
   } else {
     const results = JSON.parse(body);
     const movieId = results.results[0].id
-    console.log(movieId, "<<< movie ID")
     callback(undefined, {movieId: movieId});
   }
 });

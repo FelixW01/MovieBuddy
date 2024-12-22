@@ -21,7 +21,6 @@ request({ url: url, options }, (err, response, body) => {
       callback('Unable to fetch movie services!', response.statusCode)
   } else {
     const results = JSON.parse(body);
-    console.log(results, "<<< movie ID")
     callback(undefined, results)
   }
 });
